@@ -9,7 +9,10 @@ public class Peg {
 
     public Peg(int peg, int num)
     {
-
+        this.pegNum = peg;
+        this.numDiscs = num;
+        this.discs = new int[num];
+        this.count = 0;
     }
 
     public int getPegNum()
@@ -24,6 +27,9 @@ public class Peg {
     }
     public boolean addDisc(int whichOne)
     {
+        if (!(count > numDiscs)) {
+
+        }
         // TODO add the disc with the given number to the top of the stack on the peg.
         // don't forget to make sure the move is value (no disc on top of a smaller one)
     }

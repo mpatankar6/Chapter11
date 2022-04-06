@@ -6,7 +6,7 @@ public class HanoiTower {
 
     public HanoiTower(int num)
     {
-        // TODO implement constructor
+        this.numDiscs = num;
 
 
     }

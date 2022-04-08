@@ -12,7 +12,7 @@ public class HanoiTower {
         this.peg3 = new Peg(3, num);
 
         // Add initial disks to the first peg
-        for (int i = 5; i >= 1; i--) {
+        for (int i = num; i >= 1; i--) {
             peg1.addDisc(i);
         }
 
@@ -25,20 +25,27 @@ public class HanoiTower {
 
     private void moveTower(Peg startPeg, Peg endPeg, Peg extraPeg, int numtoMove)
     {
+        //1. Move the top tower
+        //2. Move the bottom disk
+        //3. Move the top tower back
+
         if (numtoMove == 1) {
             startPeg.moveTopDisc(endPeg);
+            return;
         } else {
-            startPeg.moveTopDisc(extraPeg);
-            moveTower(startPeg, endPeg, extraPeg, numtoMove - 1);
-        }
+            moveTower(startPeg, extraPeg, endPeg, numtoMove - 1);
+            startPeg.moveTopDisc(endPeg);
 
+
+            moveTower(extraPeg, endPeg, startPeg, numtoMove - 1);
+        }
 
 
         // TODO move discs(number input) from the start peg to the end peg
 
     }
     public static void main(String[] args) {
-        HanoiTower ht = new HanoiTower(5);
+        HanoiTower ht = new HanoiTower(3);
         ht.solveTower();
     }
 

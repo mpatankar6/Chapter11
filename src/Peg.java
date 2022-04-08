@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Peg {
     private int pegNum;
-    private int numDiscs;  // The total number of discs in the current game.
+    private final int numDiscs;  // The total number of discs in the current game.
     private int[] discs;   // array of discs - bottom disc is in position 0
     // the discs are integers which represent their size
     private int count;     // the number of discs currently on the peg.
@@ -27,16 +27,27 @@ public class Peg {
     }
     public boolean addDisc(int whichOne)
     {
-        if (!(count > numDiscs)) {
-
+        if (count == 0) {
+            discs[count] = whichOne;
+            count++;
+            return true;
         }
-        // TODO add the disc with the given number to the top of the stack on the peg.
-        // don't forget to make sure the move is value (no disc on top of a smaller one)
+
+        if (!(count > numDiscs) && (whichOne < discs[count-1])) {
+            discs[count] = whichOne;
+            count++;
+            return true;
+        } else {
+            System.out.println("Can't do that");
+            return false;
+        }
     }
     public int popDisc()
     {
-        // TODO remove the top disc from the peg.  Return its value.
-
+        int diskToPop = discs[count-1];
+        discs[count-1] = 0;
+        count--;
+        return diskToPop;
     }
     public boolean moveTopDisc(Peg newPeg)
     {

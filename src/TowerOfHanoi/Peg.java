@@ -1,3 +1,5 @@
+package TowerOfHanoi;
+
 import java.util.Arrays;
 
 public class Peg {
@@ -22,8 +24,7 @@ public class Peg {
 
     public String toString()
     {
-        String s = "Peg " + pegNum;
-        return s;
+        return "TowerOfHanoi.Peg " + pegNum;
     }
     public boolean addDisc(int whichOne)
     {

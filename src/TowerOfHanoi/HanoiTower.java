@@ -1,3 +1,5 @@
+package TowerOfHanoi;
+
 public class HanoiTower {
     private Peg peg1;
     private Peg peg2;
